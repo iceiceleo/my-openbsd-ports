@@ -1,0 +1,10 @@
+This project sprung into life as part of a discussion on how far you could get
+in a short-time frame (two hours was the initial limit) mimicking the window
+management style of pre-existing WM (Rio from Plan 9 was selected) with some
+minimal script re-use for basic input (keymaps / mouse gestures).
+
+It has since been cleaned up and documented somewhat, but it's in what you might
+call an 'unpolished state'.
+
+It is intended as a learning tool and an experiment platform in situations where
+durden would be a bit too much.
