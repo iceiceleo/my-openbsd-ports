@@ -1,0 +1,15 @@
+$OpenBSD$
+
+Index: Makefile
+--- Makefile.orig
++++ Makefile
+@@ -98,6 +98,9 @@ FINAL_CFLAGS += -Werror=implicit-function-declaration 
+ ifeq ($(shell uname),NetBSD)
+     # Needed for mkostemp
+     FINAL_CPPFLAGS += -D_NETBSD_SOURCE
++else ifeq ($(shell uname),OpenBSD)
++    # Needed for major
++    FINAL_CPPFLAGS += -D_BSD_SOURCE
+ endif
+ 
+ ifeq ($(ENABLE_DEBUG),1)

@@ -1,0 +1,554 @@
+===> sdl2-2.0.12p0 depends on: wayland-protocols-* -> wayland-protocols-1.20
+===> sdl2-2.0.12p0 depends on: gmake-* -> gmake-4.3
+===> sdl2-2.0.12p0 depends on: ccache-* -> ccache-3.7.11p0
+===> sdl2-2.0.12p0 depends on: dwz-* -> dwz-0.13p0
+===> sdl2-2.0.12p0 depends on: libsamplerate-* -> libsamplerate-0.1.9
+===> sdl2-2.0.12p0 depends on: wayland-* -> wayland-1.18.0
+===> sdl2-2.0.12p0 depends on: libxkbcommon-* -> libxkbcommon-1.0.1p0
+===>  Verifying specs:  m pthread sndio usbhid samplerate GL wayland-client wayland-egl X11 Xau xcb Xcursor Xdmcp Xext Xfixes Xi Xinerama xkbcommon Xrandr Xrender Xss Xxf86vm
+===>  found m.10.1 pthread.26.1 sndio.7.1 usbhid.7.0 samplerate.2.1 GL.17.1 wayland-client.0.0 wayland-egl.0.0 X11.17.0 Xau.10.0 xcb.4.1 Xcursor.5.0 Xdmcp.11.0 Xext.13.0 Xfixes.6.0 Xi.12.1 Xinerama.6.0 xkbcommon.1.6 Xrandr.7.1 Xrender.6.0 Xss.6.0 Xxf86vm.6.0
+===>  Checking files for sdl2-2.0.12p0
+`/usr/distfiles/SDL2-2.0.12.tar.gz' is up to date.
+>> (SHA256) SDL2-2.0.12.tar.gz: OK
+===>  Extracting for sdl2-2.0.12p0
+===>  Patching for sdl2-2.0.12p0
+===>   Applying OpenBSD patch patch-Makefile_in
+Hmm...  Looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|$OpenBSD: patch-Makefile_in,v 1.8 2020/04/01 20:43:08 naddy Exp $
+|
+|Index: Makefile.in
+|--- Makefile.in.orig
+|+++ Makefile.in
+--------------------------
+Patching file Makefile.in using Plan A...
+Hunk #1 succeeded at 126.
+done
+===>   Applying OpenBSD patch patch-sdl2-config_cmake_in
+Hmm...  Looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|$OpenBSD: patch-sdl2-config_cmake_in,v 1.1 2020/04/01 20:43:08 naddy Exp $
+|
+|Index: sdl2-config.cmake.in
+|--- sdl2-config.cmake.in.orig
+|+++ sdl2-config.cmake.in
+--------------------------
+Patching file sdl2-config.cmake.in using Plan A...
+Hunk #1 succeeded at 9.
+done
+===>   Applying OpenBSD patch patch-sdl2-config_in
+Hmm...  Looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|$OpenBSD: patch-sdl2-config_in,v 1.2 2020/04/01 20:43:08 naddy Exp $
+|
+|Index: sdl2-config.in
+|--- sdl2-config.in.orig
+|+++ sdl2-config.in
+--------------------------
+Patching file sdl2-config.in using Plan A...
+Hunk #1 succeeded at 42.
+done
+===>   Applying OpenBSD patch patch-sdl2_pc_in
+Hmm...  Looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|$OpenBSD: patch-sdl2_pc_in,v 1.2 2020/04/01 20:43:08 naddy Exp $
+|
+|Index: sdl2.pc.in
+|--- sdl2.pc.in.orig
+|+++ sdl2.pc.in
+--------------------------
+Patching file sdl2.pc.in using Plan A...
+Hunk #1 succeeded at 10.
+done
+===>   Applying OpenBSD patch patch-src_SDL_c
+Hmm...  Looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|$OpenBSD: patch-src_SDL_c,v 1.4 2020/04/01 20:43:08 naddy Exp $
+|
+|Disable breaking if no haptic feedback support which disallows gamecontroller API
+|pretend to be Linux in SDL_GetPlatform to allow compatibility with FNA games
+|until OpenBSD support has been rolled out (estimated end of 2018).
+|
+|Index: src/SDL.c
+|--- src/SDL.c.orig
+|+++ src/SDL.c
+--------------------------
+Patching file src/SDL.c using Plan A...
+Hunk #1 succeeded at 263.
+Hunk #2 succeeded at 487.
+done
+===>   Applying OpenBSD patch patch-src_filesystem_unix_SDL_sysfilesystem_c
+Hmm...  Looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|$OpenBSD: patch-src_filesystem_unix_SDL_sysfilesystem_c,v 1.2 2018/01/07 22:56:46 awolk Exp $
+|
+|Disable SDL_GetBasePath implementation, not functional.
+|
+|Index: src/filesystem/unix/SDL_sysfilesystem.c
+|--- src/filesystem/unix/SDL_sysfilesystem.c.orig
+|+++ src/filesystem/unix/SDL_sysfilesystem.c
+--------------------------
+Patching file src/filesystem/unix/SDL_sysfilesystem.c using Plan A...
+Hunk #1 succeeded at 95.
+done
+===>   Applying OpenBSD patch patch-src_joystick_SDL_gamecontroller_c
+Hmm...  Looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|$OpenBSD: patch-src_joystick_SDL_gamecontroller_c,v 1.6 2020/05/24 03:24:54 jsg Exp $
+|
+|enable GameController API the Linux fallback way (by posing as Xbox360
+|controller)
+|also disable checking string "Xbox 360 Wireless Receiver", so for now
+|everything will be Xbox360 controller (works with generic joysticks)
+|map to SDL_GAMECONTROLLERCONFIG envvar if available
+|Use layout for XBox360 controller to maximize compatibility because
+|many controllers use this mapping
+|
+|Index: src/joystick/SDL_gamecontroller.c
+|--- src/joystick/SDL_gamecontroller.c.orig
+|+++ src/joystick/SDL_gamecontroller.c
+--------------------------
+Patching file src/joystick/SDL_gamecontroller.c using Plan A...
+Hunk #1 succeeded at 739.
+Hunk #2 succeeded at 1026.
+done
+===>   Applying OpenBSD patch patch-src_video_SDL_egl_c
+Hmm...  Looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|$OpenBSD: patch-src_video_SDL_egl_c,v 1.5 2020/04/01 20:43:08 naddy Exp $
+|
+|Index: src/video/SDL_egl.c
+|--- src/video/SDL_egl.c.orig
+|+++ src/video/SDL_egl.c
+--------------------------
+Patching file src/video/SDL_egl.c using Plan A...
+Hunk #1 succeeded at 73.
+done
+===>   Applying OpenBSD patch patch-src_video_wayland_SDL_waylandvulkan_c
+Hmm...  Looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|$OpenBSD: patch-src_video_wayland_SDL_waylandvulkan_c,v 1.1 2019/03/23 05:27:33 jsg Exp $
+|
+|Index: src/video/wayland/SDL_waylandvulkan.c
+|--- src/video/wayland/SDL_waylandvulkan.c.orig
+|+++ src/video/wayland/SDL_waylandvulkan.c
+--------------------------
+Patching file src/video/wayland/SDL_waylandvulkan.c using Plan A...
+Hunk #1 succeeded at 50.
+done
+===>   Applying OpenBSD patch patch-src_video_x11_SDL_x11opengl_c
+Hmm...  Looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|$OpenBSD: patch-src_video_x11_SDL_x11opengl_c,v 1.3 2020/04/01 20:43:08 naddy Exp $
+|
+|Index: src/video/x11/SDL_x11opengl.c
+|--- src/video/x11/SDL_x11opengl.c.orig
+|+++ src/video/x11/SDL_x11opengl.c
+--------------------------
+Patching file src/video/x11/SDL_x11opengl.c using Plan A...
+Hunk #1 succeeded at 32.
+done
+===>   Applying OpenBSD patch patch-src_video_x11_SDL_x11vulkan_c
+Hmm...  Looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|$OpenBSD: patch-src_video_x11_SDL_x11vulkan_c,v 1.1 2019/03/23 05:27:33 jsg Exp $
+|
+|Index: src/video/x11/SDL_x11vulkan.c
+|--- src/video/x11/SDL_x11vulkan.c.orig
+|+++ src/video/x11/SDL_x11vulkan.c
+--------------------------
+Patching file src/video/x11/SDL_x11vulkan.c using Plan A...
+Hunk #1 succeeded at 52.
+done
+===>  Compiler link: clang -> ccache /usr/bin/clang
+===>  Compiler link: clang++ -> ccache /usr/bin/clang++
+===>  Compiler link: cc -> ccache /usr/bin/cc
+===>  Compiler link: c++ -> ccache /usr/bin/c++
+===>  Generating configure for sdl2-2.0.12p0
+===>  Configuring for sdl2-2.0.12p0
+Using /usr/pobj/sdl2-2.0.12/config.site (generated)
+configure: WARNING: unrecognized options: --disable-silent-rules, --disable-gtk-doc
+configure: loading site script /usr/pobj/sdl2-2.0.12/config.site
+checking build system type... x86_64-unknown-openbsd6.8
+checking host system type... x86_64-unknown-openbsd6.8
+checking how to print strings... print -r
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... (cached) o
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether cc accepts -g... (cached) yes
+checking for cc option to accept ISO C89... none needed
+checking for a sed that does not truncate output... (cached) /usr/bin/sed
+checking for grep that handles long lines and -e... (cached) /usr/bin/grep
+checking for egrep... (cached) /usr/bin/egrep
+checking for fgrep... (cached) /usr/bin/fgrep
+checking for ld used by cc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... (cached) 131072
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... no
+checking how to convert x86_64-unknown-openbsd6.8 file names to x86_64-unknown-openbsd6.8 format... func_convert_file_noop
+checking how to convert x86_64-unknown-openbsd6.8 file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... match_pattern /lib[^/]+(\.so\.[0-9]+\.[0-9]+|\.so|_pic\.a)$
+checking for dlltool... no
+checking how to associate runtime and link libraries... print -r --
+checking for ar... (cached) ar
+checking for archiver @FILE support... @
+checking for strip... (cached) strip
+checking for ranlib... (cached) ranlib
+checking for gawk... (cached) awk
+checking command to parse /usr/bin/nm -B output from cc object... ok
+checking for sysroot... no
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking how to run the C preprocessor... cc -E
+checking for ANSI C header files... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for memory.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for inttypes.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for dlfcn.h... (cached) yes
+checking for objdir... .libs
+checking if cc supports -fno-rtti -fno-exceptions... yes
+checking for cc option to produce PIC... -fPIC -DPIC
+checking if cc PIC flag -fPIC -DPIC works... yes
+checking if cc static flag -static works... yes
+checking if cc supports -c -o file.o... yes
+checking if cc supports -c -o file.o... (cached) yes
+checking whether the cc linker (/usr/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... yes
+checking dynamic linker characteristics... openbsd6.8 ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... no
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for gcc... (cached) cc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether cc accepts -g... (cached) yes
+checking for cc option to accept ISO C89... (cached) none needed
+checking whether we are using the GNU C++ compiler... (cached) yes
+checking whether c++ accepts -g... (cached) yes
+checking how to run the C++ preprocessor... c++ -E
+checking for ld used by c++... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking whether the c++ linker (/usr/bin/ld) supports shared libraries... yes
+checking for c++ option to produce PIC... -fPIC -DPIC
+checking if c++ PIC flag -fPIC -DPIC works... yes
+checking if c++ static flag -static works... yes
+checking if c++ supports -c -o file.o... yes
+checking if c++ supports -c -o file.o... (cached) yes
+checking whether the c++ linker (/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... openbsd6.8 ld.so
+checking how to hardcode library paths into programs... immediate
+checking for a BSD-compatible install... /usr/pobj/sdl2-2.0.12/bin/install -c
+checking whether gmake sets $(MAKE)... yes
+checking for windres... no
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for an ANSI C-conforming const... (cached) yes
+checking for inline... inline
+checking for working volatile... (cached) yes
+checking for GCC -MMD -MT option... yes
+checking for linker option --no-undefined... no
+checking for linker option --dynamicbase... no
+checking for linker option --nxcompat... no
+checking for linker option --high-entropy-va... no
+checking for ANSI C header files... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for stdio.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for stddef.h... (cached) yes
+checking for stdarg.h... (cached) yes
+checking for malloc.h... (cached) no
+checking for memory.h... (cached) yes
+checking for string.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for wchar.h... (cached) yes
+checking for inttypes.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking for limits.h... (cached) yes
+checking for ctype.h... (cached) yes
+checking for math.h... (cached) yes
+checking for float.h... (cached) yes
+checking iconv.h usability... yes
+checking iconv.h presence... yes
+checking for iconv.h... yes
+checking for signal.h... (cached) yes
+checking for size_t... (cached) yes
+checking for M_PI in math.h... yes
+checking for working alloca.h... (cached) no
+checking for alloca... (cached) yes
+checking for working memcmp... (cached) yes
+checking for working strtod... (cached) yes
+checking for mprotect... (cached) yes
+checking for malloc... (cached) yes
+checking for calloc... (cached) yes
+checking for realloc... (cached) yes
+checking for free... (cached) yes
+checking for getenv... (cached) yes
+checking for setenv... (cached) yes
+checking for putenv... (cached) yes
+checking for unsetenv... (cached) yes
+checking for qsort... (cached) yes
+checking for abs... yes
+checking for bcopy... (cached) yes
+checking for memset... (cached) yes
+checking for memcpy... (cached) yes
+checking for memmove... (cached) yes
+checking for wcslen... yes
+checking for wcslcpy... yes
+checking for wcslcat... yes
+checking for wcsdup... yes
+checking for wcsstr... yes
+checking for wcscmp... yes
+checking for wcsncmp... yes
+checking for strlen... (cached) yes
+checking for strlcpy... (cached) yes
+checking for strlcat... (cached) yes
+checking for _strrev... no
+checking for _strupr... no
+checking for _strlwr... no
+checking for strchr... (cached) yes
+checking for strrchr... (cached) yes
+checking for strstr... (cached) yes
+checking for strtok_r... (cached) yes
+checking for itoa... no
+checking for _ltoa... no
+checking for _uitoa... no
+checking for _ultoa... no
+checking for strtol... (cached) yes
+checking for strtoul... (cached) yes
+checking for _i64toa... no
+checking for _ui64toa... no
+checking for strtoll... (cached) yes
+checking for strtoull... (cached) yes
+checking for atoi... (cached) yes
+checking for atof... (cached) yes
+checking for strcmp... (cached) yes
+checking for strncmp... (cached) yes
+checking for _stricmp... no
+checking for strcasecmp... (cached) yes
+checking for _strnicmp... no
+checking for strncasecmp... (cached) yes
+checking for vsscanf... (cached) yes
+checking for vsnprintf... (cached) yes
+checking for fopen64... no
+checking for fseeko... (cached) yes
+checking for fseeko64... no
+checking for sigaction... (cached) yes
+checking for setjmp... (cached) yes
+checking for nanosleep... (cached) yes
+checking for sysconf... (cached) yes
+checking for sysctlbyname... no
+checking for getauxval... no
+checking for poll... (cached) yes
+checking for _Exit... yes
+checking for pow in -lm... (cached) yes
+checking for acos... yes
+checking for acosf... yes
+checking for asin... yes
+checking for asinf... yes
+checking for atan... yes
+checking for atanf... yes
+checking for atan2... yes
+checking for atan2f... yes
+checking for ceil... (cached) yes
+checking for ceilf... yes
+checking for copysign... yes
+checking for copysignf... yes
+checking for cos... yes
+checking for cosf... yes
+checking for exp... yes
+checking for expf... yes
+checking for fabs... yes
+checking for fabsf... yes
+checking for floor... yes
+checking for floorf... yes
+checking for fmod... yes
+checking for fmodf... yes
+checking for log... yes
+checking for logf... yes
+checking for log10... yes
+checking for log10f... yes
+checking for pow... yes
+checking for powf... yes
+checking for scalbn... yes
+checking for scalbnf... yes
+checking for sin... yes
+checking for sinf... yes
+checking for sqrt... yes
+checking for sqrtf... yes
+checking for tan... yes
+checking for tanf... yes
+checking for iconv_open in -liconv... no
+checking for iconv... no
+checking for struct sigaction.sa_sigaction... yes
+checking libunwind.h usability... no
+checking libunwind.h presence... no
+checking for libunwind.h... no
+checking for GCC builtin atomic operations... yes
+checking for GCC -mmmx option... yes
+checking for GCC -m3dnow option... yes
+checking for GCC -msse option... yes
+checking for GCC -msse2 option... yes
+checking for GCC -msse3 option... yes
+checking immintrin.h usability... yes
+checking immintrin.h presence... yes
+checking for immintrin.h... yes
+checking for Altivec with GCC altivec.h and -maltivec option... no
+checking for Altivec with GCC -maltivec option... no
+checking for Altivec with GCC altivec.h and -faltivec option... no
+checking for Altivec with GCC -faltivec option... no
+checking for GCC -Wall option... yes
+checking for necessary GCC -Wno-multichar option... no
+checking for GCC -fno-strict-aliasing option... yes
+checking for GCC -fvisibility=hidden option... yes
+checking for GCC -Wdeclaration-after-statement option... yes
+checking for dlopen... yes
+checking for dlopen in -lc... yes
+checking for ARM SIMD... no
+checking sndio.h usability... yes
+checking sndio.h presence... yes
+checking for sndio.h... yes
+checking for sio_open in -lsndio... yes
+checking for sndio audio support... yes
+checking samplerate.h usability... yes
+checking samplerate.h presence... yes
+checking for samplerate.h... yes
+checking for RPI... no
+checking for Raspberry Pi... no
+checking for X... (cached) libraries /usr/X11R6/lib, headers /usr/X11R6/include
+checking whether -R must be followed by a space... neither works
+checking for gethostbyname... (cached) yes
+checking for connect... (cached) yes
+checking for remove... (cached) yes
+checking for shmat... (cached) yes
+checking for IceConnectionNumber in -lICE... (cached) yes
+checking for X11/extensions/Xext.h... yes
+checking for const parameter to XextAddDisplay... yes
+checking for XGenericEvent... yes
+checking for XkbKeycodeToKeysym in -lX11... yes
+checking for X11/Xcursor/Xcursor.h... (cached) yes
+checking for XcursorImageCreate in -lXcursor... yes
+checking for X11/extensions/Xdbe.h... (cached) yes
+checking for X11/extensions/Xinerama.h... (cached) yes
+checking for XineramaQueryExtension in -lXinerama... yes
+checking for X11/extensions/XInput2.h... yes
+checking for XOpenDevice in -lXi... yes
+checking for xinput2 multitouch... yes
+checking for XRRQueryExtension in -lXrandr... yes
+checking for X11/extensions/scrnsaver.h... (cached) yes
+checking for XScreenSaverSuspend in -lXss... yes
+checking for X11/extensions/shape.h... (cached) yes
+checking for X11/extensions/xf86vmode.h... (cached) yes
+checking for XF86VidModeQueryVersion in -lXxf86vm... yes
+checking for OpenGL (GLX) support... yes
+checking for EGL support... yes
+checking for OpenGL ES v1 headers... yes
+checking for OpenGL ES v2 headers... yes
+checking for Wayland support... yes
+checking for Linux 2.4 unified input interface... no
+checking for FCITX... no
+checking fcitx/frontend.h usability... no
+checking fcitx/frontend.h presence... no
+checking for fcitx/frontend.h... no
+checking for Touchscreen library support... no
+checking for hid_init in -lusbhid... yes
+checking usbhid.h usability... yes
+checking usbhid.h presence... yes
+checking for usbhid.h... yes
+checking libusbhid.h usability... no
+checking libusbhid.h presence... no
+checking for libusbhid.h... no
+checking for usbhid... yes
+checking for ucr_data member of usb_ctl_report... yes
+checking for new usbhid API... yes
+checking for struct joystick in machine/joystick.h... no
+checking for pthreads... yes
+checking for recursive mutexes... yes
+checking for pthread semaphores... yes
+checking for sem_timedwait... yes
+checking for pthread_np.h... yes
+checking for pthread_setname_np... no
+checking for pthread_set_name_np... yes
+checking for clock_gettime in -lrt... no
+checking for clock_gettime in -lc... yes
+checking linux/version.h usability... no
+checking linux/version.h presence... no
+checking for linux/version.h... no
+checking for Vivante VDK API... no
+checking for Vivante FB API... no
+checking whether to install sdl2-config... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sdl2-config
+config.status: creating sdl2-config.cmake
+config.status: creating sdl2-config-version.cmake
+config.status: creating SDL2.spec
+config.status: creating sdl2.pc
+config.status: creating include/SDL_config.h
+config.status: executing libtool commands
+config.status: executing sdl2_config commands
+config.status: executing summary commands
+-en SDL2 Configure Summary:
+Building Shared Libraries
+Building Static Libraries
+Enabled modules : atomic audio video render events joystick haptic sensor power filesystem threads timers file loadso cpuinfo assembly
+Assembly Math   : mmx 3dnow sse sse2 sse3
+Audio drivers   : disk dummy sndio
+Video drivers   : dummy x11 opengl opengl_es1 opengl_es2 vulkan wayland
+X11 libraries   : xcursor xdbe xinerama xinput2 xinput2_multitouch xrandr xscrnsaver xshape xvidmode
+Input drivers   :
+Using libsamplerate : YES
+Using libudev       : NO
+Using dbus          : NO
+Using ime           : YES
+Using ibus          : NO
+Using fcitx         : NO
+
+configure: WARNING: unrecognized options: --disable-silent-rules, --disable-gtk-doc
+===>  Building for sdl2-2.0.12p0
+mkdir gen
+  GEN    gen/org-kde-kwin-server-decoration-manager-client-protocol.h
+  GEN    gen/pointer-constraints-unstable-v1-client-protocol.h
+  GEN    gen/relative-pointer-unstable-v1-client-protocol.h
+  GEN    gen/wayland-client-protocol.h
+  GEN    gen/xdg-decoration-unstable-v1-client-protocol.h
+  GEN    gen/xdg-shell-unstable-v6-client-protocol.h
+  GEN    gen/xdg-shell-client-protocol.h
+  GEN    gen/org-kde-kwin-server-decoration-manager-protocol.c
+Using "code" is deprecated - use private-code or public-code.
+See the help page for details.
+  CC     build/org-kde-kwin-server-decoration-manager-protocol.lo
+cc -O2 -pipe -g -I/usr/local/include -DUSING_GENERATED_CONFIG_H -Iinclude -I/usr/pobj/sdl2-2.0.12/SDL2-2.0.12/include -idirafter /usr/pobj/sdl2-2.0.12/SDL2-2.0.12/src/video/khronos -mmmx -m3dnow -msse -msse2 -msse3 -Wall -fno-strict-aliasing -fvisibility=hidden -Wdeclaration-after-statement -Werror=declaration-after-statement -I/usr/X11R6/include -I/usr/local/include -Igen -DHAVE_USBHID_H -DUSBHID_UCR_DATA -DUSBHID_NEW -D_REENTRANT -MMD -MT build/org-kde-kwin-server-decoration-manager-protocol.lo -c gen/org-kde-kwin-server-decoration-manager-protocol.c -fPIC -DPIC -o build/.libs/org-kde-kwin-server-decoration-manager-protocol.o
+error: unable to open output file 'build/.libs/org-kde-kwin-server-decoration-manager-protocol.o': 'No such file or directory'
+1 error generated.
+Error while executing cc -O2 -pipe -g -I/usr/local/include -DUSING_GENERATED_CONFIG_H -Iinclude -I/usr/pobj/sdl2-2.0.12/SDL2-2.0.12/include -idirafter /usr/pobj/sdl2-2.0.12/SDL2-2.0.12/src/video/khronos -mmmx -m3dnow -msse -msse2 -msse3 -Wall -fno-strict-aliasing -fvisibility=hidden -Wdeclaration-after-statement -Werror=declaration-after-statement -I/usr/X11R6/include -I/usr/local/include -Igen -DHAVE_USBHID_H -DUSBHID_UCR_DATA -DUSBHID_NEW -D_REENTRANT -MMD -MT build/org-kde-kwin-server-decoration-manager-protocol.lo -c gen/org-kde-kwin-server-decoration-manager-protocol.c -fPIC -DPIC -o build/.libs/org-kde-kwin-server-decoration-manager-protocol.o
+gmake: *** [Makefile:758: build/org-kde-kwin-server-decoration-manager-protocol.lo] Error 2
+*** Error 2 in . (/usr/ports/infrastructure/mk/bsd.port.mk:2925 '/usr/pobj/sdl2-2.0.12/build-amd64/.build_done': @cd /usr/pobj/sdl2-2.0.12/b...)
+*** Error 2 in /usr/ports/devel/sdl2 (/usr/ports/infrastructure/mk/bsd.port.mk:2584 'all': @lock=sdl2-2.0.12p0;  export _LOCKS_HELD=" sdl2-2...)

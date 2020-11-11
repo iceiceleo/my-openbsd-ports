@@ -1,0 +1,59 @@
+===> wld-0.0.0.20200220 depends on: gmake-* -> gmake-4.3
+===> wld-0.0.0.20200220 depends on: ccache-* -> ccache-3.7.11p0
+===> wld-0.0.0.20200220 depends on: wayland-* -> wayland-1.18.0
+===>  Checking files for wld-0.0.0.20200220
+`/usr/distfiles/wld-0.0.0.20200220-ea4eccb6.tar.gz' is up to date.
+>> (SHA256) wld-0.0.0.20200220-ea4eccb6.tar.gz: OK
+===>  Extracting for wld-0.0.0.20200220
+===>  Patching for wld-0.0.0.20200220
+===>   Applying OpenBSD patch patch-Makefile
+Hmm...  Looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|$OpenBSD$
+|
+|Index: Makefile
+|--- Makefile.orig
+|+++ Makefile
+--------------------------
+Patching file Makefile using Plan A...
+Hunk #1 succeeded at 98.
+done
+===>   Ignoring patchfile patch-Makefile.orig
+===>  Compiler link: clang -> ccache /usr/bin/clang
+===>  Compiler link: clang++ -> ccache /usr/bin/clang++
+===>  Compiler link: cc -> ccache /usr/bin/cc
+===>  Compiler link: c++ -> ccache /usr/bin/c++
+===>  Generating configure for wld-0.0.0.20200220
+===>  Configuring for wld-0.0.0.20200220
+===>  Building for wld-0.0.0.20200220
+  GEN	wld.pc
+  CC	buffer.o
+  CC	buffered_surface.o
+  CC	color.o
+  CC	context.o
+  CC	font.o
+  CC	renderer.o
+  CC	surface.o
+  CC	drm.o
+  CC	dumb.o
+  CC	intel.o
+  CC	intel/batch.o
+  CC	nouveau.o
+nouveau.c:209:19: warning: passing an object that undergoes default argument promotion to 'va_start' has undefined behavior [-Wvarargs]
+        va_start(dwords, count);
+                         ^
+nouveau.c:204:23: note: parameter of type 'uint16_t' (aka 'unsigned short') is declared here
+             uint16_t count, ...)
+                      ^
+1 warning generated.
+  CC	pixman.o
+  CC	wayland.o
+  CC	wayland-shm.o
+wayland-shm.c:180:6: error: implicit declaration of function 'posix_fallocate' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+        if (posix_fallocate(fd, 0, size) != 0 && ftruncate(fd, size) != 0)
+            ^
+1 error generated.
+gmake: *** [Makefile:140: wayland-shm.o] Error 1
+*** Error 2 in . (/usr/ports/infrastructure/mk/bsd.port.mk:2925 '/usr/pobj/wld-0.0.0.20200220/.build_done': @cd /usr/pobj/wld-0.0.0.20200220...)
+*** Error 2 in /usr/ports/mystuff/graphics/wld (/usr/ports/infrastructure/mk/bsd.port.mk:2584 'build': @lock=wld-0.0.0.20200220;  export _LO...)

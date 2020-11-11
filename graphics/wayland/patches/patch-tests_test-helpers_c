@@ -1,0 +1,59 @@
+$OpenBSD$
+Add *BSD support.
+Index: tests/test-helpers.c
+--- tests/test-helpers.c.orig
++++ tests/test-helpers.c
+@@ -25,9 +25,18 @@
+ 
+ #include "config.h"
+ 
+-#include <assert.h>
++#ifdef __OpenBSD__
++#include <sys/types.h>
++#include <sys/sysctl.h>
++#include <fcntl.h>
++#include <kvm.h>
++#include <limits.h>
++#else
+ #include <errno.h>
+ #include <dirent.h>
++#endif
++
++#include <assert.h>
+ #include <stdio.h>
+ #include <unistd.h>
+ #include <time.h>
+@@ -43,6 +52,25 @@
+ int
+ count_open_fds(void)
+ {
++#ifdef __OpenBSD__
++	/* Use OpenBSD-specific kernel memory interface */
++
++	struct kinfo_file *kif;
++	kvm_t *kd;
++	int count;
++	char errstr[_POSIX2_LINE_MAX];
++
++	kd = kvm_openfiles(NULL, NULL, NULL, O_RDONLY|KVM_NO_FILES, errstr);
++	assert(kd != NULL);
++	kif = kvm_getfiles(kd, KERN_FILE_BYPID, getpid(), sizeof(struct kinfo_file), &count);
++	assert(kif != NULL);
++
++	/* KVM library frees memory on itself */
++	kvm_close(kd);
++	return count;
++#else
++	/* Use /proc filesystem. */
++
+ 	DIR *dir;
+ 	struct dirent *ent;
+ 	int count = 0;
+@@ -62,6 +90,7 @@ count_open_fds(void)
+ 	closedir(dir);
+ 
+ 	return count;
++#endif
+ }
+ 
+ void
