@@ -20,9 +20,9 @@ DEBUG_PACKAGES=	${BUILD_PACKAGES}
 # zlib
 PERMIT_PACKAGE=	Yes
 
-WANTLIB=	m pthread sndio usbhid samplerate
+WANTLIB=	ffi m pthread sndio usbhid samplerate
 # GL/Xau/Xdmcp are dlopen'd by SDL
-WANTLIB+=      GL wayland-client wayland-egl X11 Xau xcb Xcursor
+WANTLIB+=      GL wayland-client wayland-cursor wayland-egl X11 Xau xcb Xcursor
 WANTLIB+=      Xdmcp Xext Xfixes Xi Xinerama xkbcommon
 WANTLIB+=	Xrandr Xrender Xss Xxf86vm
 
@@ -69,5 +69,8 @@ CONFIGURE_ARGS+= --disable-arm-simd
 
 # tests in test subdir, but interactive and not hooked up to build
 NO_TEST=	Yes
+
+pre-build:
+	/bin/mkdir -p ${WRKBUILD}/build/.libs
 
 .include <bsd.port.mk>
