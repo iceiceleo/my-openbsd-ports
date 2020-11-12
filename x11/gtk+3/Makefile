@@ -20,7 +20,10 @@ PKGNAME-cloudprint=	gtk+3-cloudprint-${GNOME_VERSION}
 PKGNAME-guic=		gtk-update-icon-cache-${GNOME_VERSION}
 
 CATEGORIES=		x11 devel
-REVISION=		0
+REVISION-main=		0
+REVISION-cups=		0
+REVISION-guic=		0
+REVISION-cluodprint=	0
 
 SHARED_LIBS +=  gdk-3                2201.1   # 2404.18
 SHARED_LIBS +=  gtk-3                2201.0   # 2404.18
@@ -34,7 +37,7 @@ MAINTAINER=		Antoine Jacoutot <ajacoutot@openbsd.org>
 PERMIT_PACKAGE=		Yes
 
 WANTLIB += ffi gdk_pixbuf-2.0 gio-2.0 glib-2.0 gmodule-2.0 gobject-2.0
-WANTLIB += iconv intl m pcre pthread z
+WANTLIB += iconv intl m pcre pthread wayland-client wayland-cursor wayland-egl xkbcommon z
 
 MULTI_PACKAGES=		-main -cups -cloudprint -guic
 
@@ -94,7 +97,9 @@ WANTLIB-cloudprint += pangoft2-1.0 pixman-1 xcb xcb-render
 WANTLIB-cloudprint += gdk-3 gtk-3 json-glib-1.0 rest-0.7 soup-2.4 soup-gnome-2.4
 WANTLIB-cloudprint += sqlite3 xml2 lzma xcb-shm png brotlicommon brotlidec
 
-LIB_DEPENDS-guic=	graphics/gdk-pixbuf2
+LIB_DEPENDS-guic=	graphics/gdk-pixbuf2 \
+			graphics/wayland \
+			x11/xkbcommon
 RUN_DEPENDS-guic=	x11/hicolor-icon-theme
 
 # uses pledge()
@@ -106,7 +111,7 @@ MODGNOME_TOOLS=		docbook gobject-introspection gtk-update-icon-cache \
 TEST_IS_INTERACTIVE=	x11
 
 CONFIGURE_STYLE=	gnu
-CONFIGURE_ARGS=		--disable-libcanberra --enable-wayland-backend
+CONFIGURE_ARGS=		--disable-libcanberra --enable-wayland-backend --enable-x11-backend
 
 # sync with devel/spidermonkey60 (ONLY_FOR_ARCHS):
 # colord -> polkit -> spidermonkey60
