@@ -25,7 +25,7 @@ do-install:
 	${INSTALL_DATA_DIR} ${PREFIX}/share/arcan/
 	${INSTALL_DATA_DIR} ${PREFIX}/share/arcan/appl/
 	/bin/cp -R ${WRKDIST} ${PREFIX}/share/arcan/appl/prio
-	/bin/cp ${LOCALBASE}/share/arcan/data/distr/launch \
+	/bin/ln -s ${LOCALBASE}/share/arcan/data/distr/launch \
 		${PREFIX}/bin/prio
 
 .include <bsd.port.mk>
