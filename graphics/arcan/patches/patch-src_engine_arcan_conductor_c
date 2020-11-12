@@ -1,0 +1,14 @@
+$OpenBSD$
+
+Index: src/engine/arcan_conductor.c
+--- src/engine/arcan_conductor.c.orig
++++ src/engine/arcan_conductor.c
+@@ -434,7 +434,7 @@ static void process_event(arcan_event* ev, int drain)
+ 
+ static int estimate_frame_cost()
+ {
+-	return conductor.render_cost + conductor.transfer_cost + conductor.timestep;
++	return conductor.render_cost + 10 + conductor.transfer_cost + conductor.timestep;
+ }
+ 
+ static bool preframe_synch(int next, int elapsed)
